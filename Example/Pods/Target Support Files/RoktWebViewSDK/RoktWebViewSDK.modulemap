@@ -1,0 +1,6 @@
+framework module RoktWebViewSDK {
+  umbrella header "RoktWebViewSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

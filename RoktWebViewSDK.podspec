@@ -24,11 +24,11 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/ROKT/rokt-webview-sdk-ios.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Copyright 2020 Rokt Pte Ltd', :file => 'LICENSE.md' }
-  s.author           = { 'Danial Motahari' => 'danial.motahari@rokt.com' }
-  s.source           = { :git => 'https://github.com/Danial Motahari/RoktWebViewSDK.git', :tag => s.version.to_s }
+  s.author           = { 'ROKT DEV' => 'nativeappsdev@rokt.com' }
+  s.source           = { :git => 'https://github.com/ROKT/rokt-webview-sdk-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'RoktWebViewSDK/Classes/**/*'
   

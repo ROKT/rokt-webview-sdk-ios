@@ -6,44 +6,21 @@ import RoktWebViewSDK
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
-            }
-            
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
+        describe("Test RoktWKWebView Configuration") {
+            context("RoktWKWebView Configuration") {
+                
+                it("test user agent") {
+                    let roktWebView = RoktWKWebView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                    expect(roktWebView.customUserAgent?.contains("RoktWebViewSDK")).toEventually(beTrue())
                 }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
+                
+                it("user script placed correctly") {
+                    let roktWebView = RoktWKWebView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                    let userscripts = roktWebView.configuration.userContentController.userScripts
+                    
+                    expect(userscripts.filter{ $0.source.contains("RoktWebViewSDK")}.isEmpty).toEventually(beFalse())
                 }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+                
             }
         }
     }

@@ -57,6 +57,7 @@
 		53B30596B1EA5F0845A886843FB9E859 /* CwlCatchException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290AB06C5020C7D0666881F33126A597 /* CwlCatchException.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		543967CB633CDE86DFD53581EAE1A35D /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBABF0035215344AC709939D44494FE /* BeEmpty.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		54A61062B9FB72C6BA0054B2A685ED0E /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431142FCC3E0BF1B63E92C2A60DEE025 /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		58B622E724A5BFE000C009ED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B622E624A5BFE000C009ED /* Constants.swift */; };
 		5A49B2C87AABFAED124DE8DDCC2FEAA1 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = 23449E9B2DADB98375534D9F43143D6A /* World.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5B8DC6716BDD04AF78AC8048F5BACF38 /* SatisfyAllOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D0A8F61B632B74E256E83003ACD8C6 /* SatisfyAllOf.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		5CE5E8EA75E0B3DC5BE140B61DF37EFD /* Nimble-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 977B3877B4E8B9D95F42C307B587C993 /* Nimble-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -296,6 +297,7 @@
 		5483E95D5C7D51AA2A5E7A15E8A31360 /* SuiteHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuiteHooks.swift; path = Sources/Quick/Hooks/SuiteHooks.swift; sourceTree = "<group>"; };
 		54E13155C7AB4AA28E25A54A8BF591E5 /* RoktWebViewSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RoktWebViewSDK.debug.xcconfig; sourceTree = "<group>"; };
 		5808345E771B550FC8CE653E9F5BAD6A /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Sources/Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
+		58B622E624A5BFE000C009ED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = RoktWebViewSDK/Classes/Constants.swift; sourceTree = "<group>"; };
 		595027D7E93A1E64281D19758E6CD356 /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
 		59F456471BDF77CCB885170D88E06C5E /* Pods-RoktWebViewSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RoktWebViewSDK_Tests.modulemap"; sourceTree = "<group>"; };
 		5BE15CF4833A08CAEA8F126A2BE944EA /* QuickSpecBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpecBase.h; path = Sources/QuickSpecBase/include/QuickSpecBase.h; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				782AD3182AAD1355E69112E9685A1304 /* RoktWKWebView.swift */,
+				58B622E624A5BFE000C009ED /* Constants.swift */,
 				858F9850F55FD00024F1725556178F8A /* Pod */,
 				C5C3857F8B8DDB377AFBC3DFE3D1A6CB /* Support Files */,
 			);
@@ -1341,6 +1344,7 @@
 			files = (
 				AF2878C406473C4FDC7D3BF649C04C5A /* RoktWKWebView.swift in Sources */,
 				E0BFBD78524B4C8B874A6D88CF099908 /* RoktWebViewSDK-dummy.m in Sources */,
+				58B622E724A5BFE000C009ED /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1636,7 +1640,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK.modulemap";
 				PRODUCT_MODULE_NAME = RoktWebViewSDK;
@@ -1888,7 +1892,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RoktWebViewSDK/RoktWebViewSDK.modulemap";
 				PRODUCT_MODULE_NAME = RoktWebViewSDK;

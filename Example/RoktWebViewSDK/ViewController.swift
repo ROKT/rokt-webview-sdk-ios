@@ -10,18 +10,36 @@
 //
 
 import UIKit
+import WebKit
+import RoktWebViewSDK
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var urlTextView: UITextField!
+    @IBOutlet weak var roktWKWebview: RoktWKWebView!
+    
+    private let sampleHtmlString = """
+        <html>
+            <button onclick=\"RoktWebViewSDK.open('https://rokt.com')\">
+                Open Link in External Browser</button>
+        </html>
+        """
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func loadWebURL(_ sender: Any) {
+        roktWKWebview.load(URLRequest(url: URL(string: urlTextView.text!)!))
+    }
+    
+    @IBAction func loadMockData(_ sender: Any) {
+        roktWKWebview.loadHTMLString(sampleHtmlString, baseURL: nil)
+    }
+    
 }
 

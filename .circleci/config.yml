@@ -5,7 +5,6 @@ version: 2.1
 
 jobs:
   build:
-
     macos:
       xcode: 11.6.0 # Specify the Xcode version to use
     working_directory: /Users/distiller/project

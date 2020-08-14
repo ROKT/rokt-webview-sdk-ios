@@ -21,6 +21,9 @@ jobs:
           paths:
             - vendor/bundle
       - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone 11 (13.3) [" || true
+      - run:
           name: Fastlane Setup
           command: bundle exec fastlane setup
       - run:

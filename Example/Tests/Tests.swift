@@ -11,14 +11,14 @@ class TableOfContentsSpec: QuickSpec {
                 
                 it("test user agent") {
                     let roktWebView = RoktWKWebView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-                    expect(roktWebView.customUserAgent?.contains("RoktWebViewSDK")).toEventually(beTrue())
+                    expect(roktWebView.customUserAgent?.contains("RoktWebViewSDK")).toEventually(beTrue(), timeout: 3)
                 }
                 
                 it("user script placed correctly") {
                     let roktWebView = RoktWKWebView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
                     let userscripts = roktWebView.configuration.userContentController.userScripts
                     
-                    expect(userscripts.filter{ $0.source.contains("RoktWebViewSDK")}.isEmpty).toEventually(beFalse())
+                    expect(userscripts.filter{ $0.source.contains("RoktWebViewSDK")}.isEmpty).toEventually(beFalse(), timeout: 3)
                 }
                 
             }

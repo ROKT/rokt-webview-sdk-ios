@@ -36,7 +36,7 @@ commands:
       - run:
           name: Fastlane Setup
           command: bundle exec fastlane setup
-          
+
 #------------------------------------------------------------
 # jobs
 #------------------------------------------------------------
@@ -53,6 +53,9 @@ jobs:
     executor:
       name: rokt_xcode_11
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "${FINGERPRINT_KEY}"
       - rokt_sync_bundler_and_fastlane
       - run:
           name: Fastlane tag

@@ -31,4 +31,19 @@ platform :ios do
   	)
   end
 
+  desc "Tag branch after release"
+  lane :tagRelease do
+    spec = read_podspec(path: "RoktWebViewSDK.podspec")
+    version = spec["version"]
+    begin
+      ensure_git_branch(branch: 'release-(.*)')     
+    rescue => exception
+      version_bump_podspec(path: "RoktWebViewSDK.podspec", version_number:version + "-alpha." + ENV['CIRCLE_BUILD_NUM'])
+      version += "-alpha." + ENV['CIRCLE_BUILD_NUM']
+    end
+    
+    add_git_tag(tag:version)
+    push_git_tags(tag:version)    
+  end
+
 end

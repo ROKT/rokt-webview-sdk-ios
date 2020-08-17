@@ -2,15 +2,25 @@
 # https://circleci.com/docs/2.0/testing-ios/
 
 version: 2.1
-
-jobs:
-  build:
+#------------------------------------------------------------
+# executors
+#------------------------------------------------------------
+executors:
+  rokt_xcode_11:
     macos:
-      xcode: 11.6.0 # Specify the Xcode version to use
+      xcode: 11.6.0
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: output
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
     shell: /bin/bash --login -o pipefail
+
+#------------------------------------------------------------
+# commands
+#------------------------------------------------------------
+commands:
+  rokt_sync_bundler_and_fastlane:
     steps:
       - checkout
       - restore_cache:
@@ -22,14 +32,50 @@ jobs:
             - vendor/bundle
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 11 (13.3) [" || true
+          command: xcrun instruments -w "iPhone 11 (13.6) [" || true
       - run:
           name: Fastlane Setup
           command: bundle exec fastlane setup
+          
+#------------------------------------------------------------
+# jobs
+#------------------------------------------------------------
+jobs:
+  build-run-unit-test:
+    executor:
+      name: rokt_xcode_11
+    steps:
+      - rokt_sync_bundler_and_fastlane
       - run:
-          name: Fastlane test
+          name: Fastlane
           command: bundle exec fastlane test
-      - store_artifacts:
-          path: output
-      - store_test_results:
-          path: output/scan
+  publish:
+    executor:
+      name: rokt_xcode_11
+    steps:
+      - rokt_sync_bundler_and_fastlane
+      - run:
+          name: Fastlane tag
+          command: bundle exec fastlane tagRelease
+      - run:
+          name: Validate Pod
+          command: pod spec lint
+      - run:
+          name: Push Pod
+          command: pod trunk push
+
+#------------------------------------------------------------
+# workflows
+#------------------------------------------------------------
+workflows:
+  version: 2  
+  building:
+    jobs:
+      - build-run-unit-test
+      - hold:
+          type: approval
+          requires:
+            - build-run-unit-test
+      - publish:
+          requires:
+            - hold

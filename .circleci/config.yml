@@ -61,7 +61,7 @@ jobs:
           name: Fastlane tag
           command:  | 
             echo "${FINGERPRINT_KEY}"
-            echo "${KEY_TEST}"
+            echo ${KEY_TEST}
             ssh-add -l
             bundle exec fastlane tagRelease
       - run:

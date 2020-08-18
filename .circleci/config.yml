@@ -45,6 +45,9 @@ jobs:
     executor:
       name: rokt_xcode_11
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "fa:84:ec:d4:47:25:38:75:b3:61:fd:59:4c:eb:75:2f"
       - rokt_sync_bundler_and_fastlane
       - run:
           name: Fastlane
@@ -55,15 +58,11 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "${FINGERPRINT_KEY}"
+            - "fa:84:ec:d4:47:25:38:75:b3:61:fd:59:4c:eb:75:2f"
       - rokt_sync_bundler_and_fastlane
       - run:
           name: Fastlane tag
-          command:  | 
-            echo "${FINGERPRINT_KEY}"
-            echo ${KEY_TEST}
-            ssh-add -l
-            bundle exec fastlane tagRelease
+          command: bundle exec fastlane tagRelease
       - run:
           name: Validate Pod
           command: pod spec lint

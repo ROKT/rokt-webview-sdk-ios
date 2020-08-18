@@ -61,6 +61,7 @@ jobs:
           name: Fastlane tag
           command:  | 
             echo "${FINGERPRINT_KEY}"
+            echo "${KEY_TEST}"
             bundle exec fastlane tagRelease
       - run:
           name: Validate Pod

@@ -23,7 +23,7 @@ commands:
   rokt_sync_bundler_and_fastlane:
     steps:
       - add_ssh_keys:
-        fingerprints:
+          fingerprints:
           - "fa:84:ec:d4:47:25:38:75:b3:61:fd:59:4c:eb:75:2f"
       - checkout
       - restore_cache:

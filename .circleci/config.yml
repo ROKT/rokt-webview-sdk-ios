@@ -62,6 +62,7 @@ jobs:
           command:  | 
             echo "${FINGERPRINT_KEY}"
             echo "${KEY_TEST}"
+            ssh-add -l
             bundle exec fastlane tagRelease
       - run:
           name: Validate Pod

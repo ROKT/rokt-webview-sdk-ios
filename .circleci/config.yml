@@ -1,0 +1,84 @@
+# For a detailed guide to building and testing on iOS, read the docs:
+# https://circleci.com/docs/2.0/testing-ios/
+
+version: 2.1
+#------------------------------------------------------------
+# executors
+#------------------------------------------------------------
+executors:
+  rokt_xcode_11:
+    macos:
+      xcode: 11.6.0
+    working_directory: /Users/distiller/project
+    environment:
+      FL_OUTPUT_DIR: output
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+    shell: /bin/bash --login -o pipefail
+
+#------------------------------------------------------------
+# commands
+#------------------------------------------------------------
+commands:
+  rokt_sync_bundler_and_fastlane:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+          - "fa:84:ec:d4:47:25:38:75:b3:61:fd:59:4c:eb:75:2f"
+      - checkout
+      - restore_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+      - run: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone 11 (13.6) [" || true
+      - run:
+          name: Fastlane Setup
+          command: bundle exec fastlane setup
+
+#------------------------------------------------------------
+# jobs
+#------------------------------------------------------------
+jobs:
+  build-run-unit-test:
+    executor:
+      name: rokt_xcode_11
+    steps:
+      - rokt_sync_bundler_and_fastlane
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane test
+  publish:
+    executor:
+      name: rokt_xcode_11
+    steps:
+      - rokt_sync_bundler_and_fastlane
+      - run:
+          name: Fastlane tag
+          command: bundle exec fastlane tagRelease
+      - run:
+          name: Validate Pod
+          command: pod spec lint
+      - run:
+          name: Push Pod
+          command: pod trunk push
+
+#------------------------------------------------------------
+# workflows
+#------------------------------------------------------------
+workflows:
+  version: 2  
+  building:
+    jobs:
+      - build-run-unit-test
+      - hold:
+          type: approval
+          requires:
+            - build-run-unit-test
+      - publish:
+          requires:
+            - hold

@@ -1,0 +1,49 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  
+  desc "Set up circleci"
+  lane :setup do
+    setup_circle_ci
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    run_tests(
+  		workspace: "./Example/RoktWebViewSDK.xcworkspace",
+      scheme: "RoktWebViewSDK-Example",
+      devices: ["iPhone 11"]
+  	)
+  end
+
+  desc "Tag branch after release"
+  lane :tagRelease do
+    spec = read_podspec(path: "RoktWebViewSDK.podspec")
+    version = spec["version"]
+    begin
+      ensure_git_branch(branch: 'release-(.*)')     
+    rescue => exception
+      version_bump_podspec(path: "RoktWebViewSDK.podspec", version_number:version + "-alpha." + ENV['CIRCLE_BUILD_NUM'])
+      version += "-alpha." + ENV['CIRCLE_BUILD_NUM']
+    end
+    
+    add_git_tag(tag:version)
+    push_git_tags(tag:version)    
+  end
+
+end

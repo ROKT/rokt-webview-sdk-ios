@@ -58,6 +58,14 @@ jobs:
     steps:
       - rokt_sync_bundler_and_fastlane
       - run:
+          name: Chat Notification
+          when: on_success
+          command: >
+            curl --header "Content-Type: application/json"
+            --request POST
+            --data "{\"text\": \"*Mobile-iOS* is publishing _RoktWebViewSDK_ to CocoaPods\n${CIRCLE_BUILD_URL}\n_by ${CIRCLE_USERNAME}_\"}" 
+            "${CHAT_WEBHOOK}&threadKey=${CIRCLE_BUILD_NUM}"
+      - run:
           name: Fastlane tag
           command: bundle exec fastlane tagRelease
       - run:
@@ -66,6 +74,14 @@ jobs:
       - run:
           name: Push Pod
           command: pod trunk push
+      - run:
+          name: Chat Notification
+          when: on_success
+          command: >
+            curl --header "Content-Type: application/json"
+            --request POST
+            --data "{\"text\": \"*Mobile-iOS* has published _RoktWebViewSDK_ to CocoaPods\"}" 
+            "${CHAT_WEBHOOK}&threadKey=${CIRCLE_BUILD_NUM}"
 
 #------------------------------------------------------------
 # workflows

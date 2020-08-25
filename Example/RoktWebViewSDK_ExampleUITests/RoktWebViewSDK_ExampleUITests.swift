@@ -27,17 +27,18 @@ class RoktWebViewSDK_ExampleUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+        
         app.launch()
+        
         //Bring Mock website
         app/*@START_MENU_TOKEN@*/.staticTexts["Mock"]/*[[".buttons[\"Mock\"].staticTexts[\"Mock\"]",".staticTexts[\"Mock\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
         //tap on external browser button on webview
         let openLinkInExternalBrowserButton = app.webViews.webViews.webViews.buttons["Open Link in External Browser"]
         openLinkInExternalBrowserButton.tap()
-        //wait for safari to be opened
-        let _ = safari.wait(for: .runningForeground, timeout: 10)
         
-        //assert safari is in active
-        XCTAssert(safari.isHittable)
+        //wait for safari to be opened and running on forground
+        XCTAssert(safari.wait(for: .runningForeground, timeout: 30))
     }
 
 }

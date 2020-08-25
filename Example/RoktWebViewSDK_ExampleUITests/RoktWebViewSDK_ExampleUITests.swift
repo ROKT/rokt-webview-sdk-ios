@@ -36,8 +36,8 @@ class RoktWebViewSDK_ExampleUITests: XCTestCase {
         //wait for safari to be opened
         let _ = safari.wait(for: .runningForeground, timeout: 10)
         
-        //assert the url is correct
-        XCTAssert(safari.otherElements["URL"].waitForExistence(timeout: 5))
+        //assert safari is in active
+        XCTAssert(safari.isHittable)
     }
 
 }

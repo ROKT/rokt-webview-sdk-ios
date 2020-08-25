@@ -34,11 +34,10 @@ class RoktWebViewSDK_ExampleUITests: XCTestCase {
         let openLinkInExternalBrowserButton = app.webViews.webViews.webViews.buttons["Open Link in External Browser"]
         openLinkInExternalBrowserButton.tap()
         //wait for safari to be opened
-        let _ = safari.wait(for: .runningForeground, timeout: 30)
+        let _ = safari.wait(for: .runningForeground, timeout: 10)
         
         //assert the url is correct
         XCTAssert(safari.otherElements["URL"].waitForExistence(timeout: 5))
-        XCTAssertTrue((safari.otherElements["URL"].value as! String).contains("rokt.com"))
     }
 
 }

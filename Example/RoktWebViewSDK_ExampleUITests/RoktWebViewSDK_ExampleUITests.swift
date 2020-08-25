@@ -2,8 +2,11 @@
 //  RoktWebViewSDK_ExampleUITests.swift
 //  RoktWebViewSDK_ExampleUITests
 //
-//  Created by Danial Motahari on 24/8/20.
-//  Copyright © 2020 CocoaPods. All rights reserved.
+//  Copyright 2020 Rokt Pte Ltd
+//  Licensed under the Rokt Software Development Kit (SDK) Terms of Use
+//  Version 2.0 (the "License");
+//  You may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at https://rokt.com/sdk-license-2-0/
 //
 
 import XCTest
@@ -24,13 +27,14 @@ class RoktWebViewSDK_ExampleUITests: XCTestCase {
     }
     
     func testWKWebViewOpenExternalBrowser() throws {
-        // UI tests must launch the application that they test.
+        // UI tests must launch the application.
         let app = XCUIApplication()
+        // Safari application
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-        
+        //Launch Example application
         app.launch()
         
-        //Bring Mock website
+        //Bring Mock website with rokt button
         app/*@START_MENU_TOKEN@*/.staticTexts["Mock"]/*[[".buttons[\"Mock\"].staticTexts[\"Mock\"]",".staticTexts[\"Mock\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         //tap on external browser button on webview

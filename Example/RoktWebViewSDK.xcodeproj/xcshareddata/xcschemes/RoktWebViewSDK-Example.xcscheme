@@ -61,6 +61,16 @@
                ReferencedContainer = "container:RoktWebViewSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "580FB89124F34C29005452BE"
+               BuildableName = "RoktWebViewSDK_ExampleUITests.xctest"
+               BlueprintName = "RoktWebViewSDK_ExampleUITests"
+               ReferencedContainer = "container:RoktWebViewSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

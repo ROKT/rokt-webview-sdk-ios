@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580FB89524F34C29005452BE /* RoktWebViewSDK_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB89424F34C29005452BE /* RoktWebViewSDK_ExampleUITests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -18,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		580FB89724F34C29005452BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = RoktWebViewSDK_Example;
+		};
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -32,6 +40,9 @@
 		0FF2E5517A9541DBC49D425D /* Pods_RoktWebViewSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoktWebViewSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D67313DBCC79466AE86B3E /* Pods_RoktWebViewSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoktWebViewSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570D8F92340E65913C8416AB /* Pods-RoktWebViewSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoktWebViewSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-RoktWebViewSDK_Tests/Pods-RoktWebViewSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		580FB89224F34C29005452BE /* RoktWebViewSDK_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoktWebViewSDK_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		580FB89424F34C29005452BE /* RoktWebViewSDK_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktWebViewSDK_ExampleUITests.swift; sourceTree = "<group>"; };
+		580FB89624F34C29005452BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B8AFDEBEEEDB8556928CEE3 /* Pods-RoktWebViewSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoktWebViewSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-RoktWebViewSDK_Example/Pods-RoktWebViewSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RoktWebViewSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoktWebViewSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		580FB88F24F34C29005452BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,12 +96,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		580FB89324F34C29005452BE /* RoktWebViewSDK_ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				580FB89424F34C29005452BE /* RoktWebViewSDK_ExampleUITests.swift */,
+				580FB89624F34C29005452BE /* Info.plist */,
+			);
+			path = RoktWebViewSDK_ExampleUITests;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for RoktWebViewSDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				580FB89324F34C29005452BE /* RoktWebViewSDK_ExampleUITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				A88005BC1008355D9ECFF6B7 /* Pods */,
 				1B4959C356F8A08EBB69B564 /* Frameworks */,
@@ -95,6 +123,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* RoktWebViewSDK_Example.app */,
 				607FACE51AFB9204008FA782 /* RoktWebViewSDK_Tests.xctest */,
+				580FB89224F34C29005452BE /* RoktWebViewSDK_ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		580FB89124F34C29005452BE /* RoktWebViewSDK_ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 580FB89B24F34C29005452BE /* Build configuration list for PBXNativeTarget "RoktWebViewSDK_ExampleUITests" */;
+			buildPhases = (
+				580FB88E24F34C29005452BE /* Sources */,
+				580FB88F24F34C29005452BE /* Frameworks */,
+				580FB89024F34C29005452BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				580FB89824F34C29005452BE /* PBXTargetDependency */,
+			);
+			name = RoktWebViewSDK_ExampleUITests;
+			productName = RoktWebViewSDK_ExampleUITests;
+			productReference = 580FB89224F34C29005452BE /* RoktWebViewSDK_ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		607FACCF1AFB9204008FA782 /* RoktWebViewSDK_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RoktWebViewSDK_Example" */;
@@ -207,10 +254,15 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					580FB89124F34C29005452BE = {
+						CreatedOnToolsVersion = 11.6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -238,11 +290,19 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* RoktWebViewSDK_Example */,
 				607FACE41AFB9204008FA782 /* RoktWebViewSDK_Tests */,
+				580FB89124F34C29005452BE /* RoktWebViewSDK_ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		580FB89024F34C29005452BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,6 +412,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		580FB88E24F34C29005452BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580FB89524F34C29005452BE /* RoktWebViewSDK_ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +440,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		580FB89824F34C29005452BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* RoktWebViewSDK_Example */;
+			targetProxy = 580FB89724F34C29005452BE /* PBXContainerItemProxy */;
+		};
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* RoktWebViewSDK_Example */;
@@ -399,6 +472,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		580FB89924F34C29005452BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RoktWebViewSDK_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.RoktWebViewSDK-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RoktWebViewSDK_Example;
+			};
+			name = Debug;
+		};
+		580FB89A24F34C29005452BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RoktWebViewSDK_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.RoktWebViewSDK-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RoktWebViewSDK_Example;
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -573,6 +699,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		580FB89B24F34C29005452BE /* Build configuration list for PBXNativeTarget "RoktWebViewSDK_ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				580FB89924F34C29005452BE /* Debug */,
+				580FB89A24F34C29005452BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "RoktWebViewSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

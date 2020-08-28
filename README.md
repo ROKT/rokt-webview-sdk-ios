@@ -1,7 +1,7 @@
 # rokt-webview-sdk-ios
 The RoktWebView SDK for iOS is a custom WebView that opens Rokt links in an external browser instead of in the same WebView. 
 
-For more information, please visit documentation on https://docs.rokt.com/docs/sdk/introduction.html
+For more information, please visit [here](https://docs.rokt.com/docs/sdk/introduction.html)
 
 ## Usage
 

@@ -1,6 +1,8 @@
 # rokt-webview-sdk-ios
 The RoktWebView SDK for iOS is a custom WebView that opens Rokt links in an external browser instead of in the same WebView. 
 
+For more information, please visit [here](https://docs.rokt.com/docs/sdk/introduction.html)
+
 ## Usage
 
 The below instructions assume that you are replacing the WKWebView for iOS with the Rokt WebView. The overall process is very simple to complete and the exact approach will depend on whether the WebView is initialised programmatically or not.
@@ -17,7 +19,7 @@ pod 'RoktWebViewSDK'
 
 In storyboard, replace WKWebView with RoktWKWebView Custom Class.
 
-![Storyboard presentation](RoktWKWebViewCustomClassPresentation.png)
+![Storyboard presentation](https://roktcdn1.akamaized.net/store/imgs/ios/roktwkwebviewcustomclasspresentation.png)
 
 Alternatively, the Rokt WebView SDK can be added programmatically in your code. For example:
 

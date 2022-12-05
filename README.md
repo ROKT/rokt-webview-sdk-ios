@@ -51,5 +51,9 @@ NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
 [roktWKWebView loadRequest:nsrequest];
 ```
 
+## Testing locally
+1. Download the source code locally
+2. Run the `RoktWebViewSDK.xcworkspace` project in `Example`
+
 ### License
 Please see [LICENSE](LICENSE.md)

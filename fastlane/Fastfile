@@ -35,6 +35,7 @@ platform :ios do
   lane :tagRelease do
     spec = read_podspec(path: "RoktWebViewSDK.podspec")
     version = spec["version"]
+
     begin
       ensure_git_branch(branch: 'release-(.*)')     
     rescue => exception
@@ -43,7 +44,7 @@ platform :ios do
     end
     
     add_git_tag(tag: version)
-    push_git_tags(version)    
+    push_git_tags(tag: version)    
   end
 
 end

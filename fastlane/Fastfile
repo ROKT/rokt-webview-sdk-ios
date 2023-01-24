@@ -43,8 +43,8 @@ platform :ios do
       version += "-alpha." + ENV['CIRCLE_BUILD_NUM']
     end
     
-    add_git_tag(tag: version)
-    push_git_tags(tag: version)    
+    # add_git_tag(tag: version)
+    # push_git_tags(tag: version)    
   end
 
 end

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RoktWebViewSDK'
-  s.version          = '1.0.0-beta.1'
+  s.version          = '1.0.0-beta.2'
   s.summary          = 'RoktWebViewSDK.'
   s.swift_version    = '5.0'
 # This description is used to generate tags and improve search results.

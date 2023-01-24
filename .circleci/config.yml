@@ -70,7 +70,7 @@ jobs:
           command: bundle exec fastlane tagRelease
       - run:
           name: Validate Pod
-          command: pod spec lint
+          command: pod spec lint --verbose
       - run:
           name: Push Pod
           command: pod trunk push

@@ -1,7 +1,6 @@
 fastlane documentation
 ================
 # Installation
-
 Make sure you have the latest version of the Xcode command line tools installed:
 
 ```

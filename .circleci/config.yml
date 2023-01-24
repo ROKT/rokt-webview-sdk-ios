@@ -57,17 +57,17 @@ jobs:
       name: rokt_xcode_11
     steps:
       - rokt_sync_bundler_and_fastlane
-      - run:
-          name: Chat Notification
-          when: on_success
-          command: >
-            curl --header "Content-Type: application/json"
-            --request POST
-            --data "{\"text\": \"*Mobile-iOS* is publishing _RoktWebViewSDK_ to CocoaPods\n${CIRCLE_BUILD_URL}\n_by ${CIRCLE_USERNAME}_\"}" 
-            "${CHAT_WEBHOOK}&threadKey=${CIRCLE_BUILD_NUM}"
-      - run:
-          name: Fastlane tag
-          command: bundle exec fastlane tagRelease
+      #- run:
+      #    name: Chat Notification
+      #    when: on_success
+      #    command: >
+      #      curl --header "Content-Type: application/json"
+      #      --request POST
+      #      --data "{\"text\": \"*Mobile-iOS* is publishing _RoktWebViewSDK_ to CocoaPods\n${CIRCLE_BUILD_URL}\n_by ${CIRCLE_USERNAME}_\"}" 
+      #      "${CHAT_WEBHOOK}&threadKey=${CIRCLE_BUILD_NUM}"
+      #- run:
+      #    name: Fastlane tag
+      #    command: bundle exec fastlane tagRelease
       - run:
           name: Validate Pod
           command: pod spec lint --verbose
@@ -95,6 +95,4 @@ workflows:
           type: approval
           requires:
             - build-run-unit-test
-      - publish:
-          requires:
-            - hold
+      - publish

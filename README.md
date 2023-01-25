@@ -55,5 +55,10 @@ NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
 1. Download the source code locally
 2. Run the `RoktWebViewSDK.xcworkspace` project in `Example`
 
+## Releasing
+1. Open `RoktWebViewSDK.podspec` and update `s.version` to the new release version
+2. Raise a PR targetting the latest `release-x.x` branch
+3. After the build resolves, approve the `hold` job. This automatically runs the `publish` job which pushes your changes to `Cocoapods`
+
 ### License
 Please see [LICENSE](LICENSE.md)

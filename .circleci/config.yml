@@ -24,7 +24,7 @@ commands:
     steps:
       - add_ssh_keys:
           fingerprints:
-          - "fa:84:ec:d4:47:25:38:75:b3:61:fd:59:4c:eb:75:2f"
+          - "${USER_KEY}"
       - checkout
       - restore_cache:
           key: 1-gems-{{ checksum "Gemfile.lock" }}

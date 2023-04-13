@@ -10,7 +10,7 @@
 //
 
 internal class Constants {
-    static let sdkVersion = "1.0"
+    static let sdkVersion = "2.0"
     static let roktMessageHandler = "roktWebSDK"
     static let customUserAgent = " RoktWebViewSDK/" + sdkVersion
     static let navigatorUserAgent = "navigator.userAgent"

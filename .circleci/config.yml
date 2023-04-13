@@ -6,7 +6,7 @@ version: 2.1
 # executors
 #------------------------------------------------------------
 executors:
-  rokt_xcode_11:
+  rokt_xcode_14:
     macos:
       xcode: 14.2.0
     working_directory: /Users/distiller/project
@@ -35,7 +35,7 @@ commands:
             - vendor/bundle
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 11 (13.6) [" || true
+          command: xcrun instruments -w "iPhone 13 (14.0) [" || true
       - run:
           name: Fastlane Setup
           command: bundle exec fastlane setup
@@ -46,7 +46,7 @@ commands:
 jobs:
   build-run-unit-test:
     executor:
-      name: rokt_xcode_11
+      name: rokt_xcode_14
     steps:
       - rokt_sync_bundler_and_fastlane
       - run:
@@ -54,7 +54,7 @@ jobs:
           command: bundle exec fastlane test
   publish:
     executor:
-      name: rokt_xcode_11
+      name: rokt_xcode_14
     steps:
       - rokt_sync_bundler_and_fastlane
       - run:

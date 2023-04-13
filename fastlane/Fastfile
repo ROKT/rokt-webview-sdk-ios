@@ -26,7 +26,8 @@ platform :ios do
   lane :test do
     run_tests(
   		workspace: "./Example/RoktWebViewSDK.xcworkspace",
-      scheme: "RoktWebViewSDK-Example"
+      scheme: "RoktWebViewSDK-Example",
+      devices: ["iPhone 13"]
   	)
   end
 

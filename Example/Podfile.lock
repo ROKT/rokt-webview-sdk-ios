@@ -4,25 +4,31 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Nimble (7.3.4)
-  - Nimble-Snapshots (6.3.0):
-    - Nimble-Snapshots/Core (= 6.3.0)
-  - Nimble-Snapshots/Core (6.3.0):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble (~> 7.0)
-  - Quick (1.2.0)
-  - RoktWebViewSDK (0.1.0)
+  - iOSSnapshotTestCase (8.0.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 8.0.0)
+  - iOSSnapshotTestCase/Core (8.0.0)
+  - iOSSnapshotTestCase/SwiftSupport (8.0.0):
+    - iOSSnapshotTestCase/Core
+  - Nimble (11.2.2)
+  - Nimble-Snapshots (9.5.1):
+    - Nimble-Snapshots/Core (= 9.5.1)
+  - Nimble-Snapshots/Core (9.5.1):
+    - iOSSnapshotTestCase (~> 8.0)
+    - Nimble (~> 11.0)
+  - Quick (6.1.0)
+  - RoktWebViewSDK (1.0.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
-  - Nimble (~> 7.0)
-  - Nimble-Snapshots (~> 6.3.0)
-  - Quick (~> 1.2.0)
+  - FBSnapshotTestCase
+  - Nimble
+  - Nimble-Snapshots
+  - Quick
   - RoktWebViewSDK (from `../`)
 
 SPEC REPOS:
   trunk:
     - FBSnapshotTestCase
+    - iOSSnapshotTestCase
     - Nimble
     - Nimble-Snapshots
     - Quick
@@ -33,11 +39,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
-  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  RoktWebViewSDK: 346e5e0fe8e77ecc49eefde5a0df66be4a1a377c
+  iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
+  Nimble: 01a944d4d07eab73617dfd4b32ac9f7152ac34de
+  Nimble-Snapshots: ffa513489b87160d95b09e9158c9cb2bf70e00a4
+  Quick: 6676ffb409bf04abba2ff23902af2407bfc6ac90
+  RoktWebViewSDK: 4f76561c1b3e1f3c93376e0524d5790265bd6841
 
-PODFILE CHECKSUM: 43cd9d3498a6e37258043ecfa425a8b87af38e2b
+PODFILE CHECKSUM: 754f158324881714898cc078eb19b9a261378978
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.3

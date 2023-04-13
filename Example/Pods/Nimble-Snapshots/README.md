@@ -1,8 +1,12 @@
-[![CircleCI](https://circleci.com/gh/ashfurrow/Nimble-Snapshots/tree/master.svg?style=svg)](https://circleci.com/gh/ashfurrow/Nimble-Snapshots/tree/master)
+![GitHub Actions CI](https://github.com/ashfurrow/Nimble-Snapshots/actions/workflows/build-and-test.yml/badge.svg?branch=master)
+[![Cocoapods compatible](https://img.shields.io/cocoapods/v/Nimble-Snapshots.svg)](https://cocoapods.org/?q=Nimble-Snapshots)
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-brightgreen)](https://swift.org/package-manager)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![License](https://img.shields.io/github/license/ashfurrow/Nimble-Snapshots.svg)](https://github.com/ashfurrow/Nimble-Snapshots/blob/master/LICENSE)
 =============================
 
-[Nimble](https://github.com/Quick/Nimble) matchers for [FBSnapshotTestCase](https://github.com/facebook/ios-snapshot-test-case).
-Highly derivative of [Expecta Matchers for FBSnapshotTestCase](https://github.com/dblock/ios-snapshot-test-case-expecta).
+[Nimble](https://github.com/Quick/Nimble) matchers for [iOSSnapshotTestCase](https://github.com/uber/ios-snapshot-test-case).
+Originally derived from [Expecta Matchers for FBSnapshotTestCase](https://github.com/dblock/ios-snapshot-test-case-expecta).
 
 <p align="center">
 <img src="http://gifs.ashfurrow.com/click.gif" />
@@ -17,7 +21,7 @@ You need to be using CocoaPods 0.36 Beta 1 or higher. Your `Podfile` should look
 something like the following.
 
 ```rb
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -40,15 +44,34 @@ You need to be using Carthage 0.18 or higher. Your `Cartfile` (or `Cartfile.priv
 something like the following.
 
 ```rb
-github "Quick/Quick" ~> 1.0
-github "Quick/Nimble" ~> 7.0
-github "facebook/ios-snapshot-test-case" "2.1.4"
+github "Quick/Quick" ~> 4.0
+github "Quick/Nimble" ~> 9.2
+github "uber/ios-snapshot-test-case" "8.0.0"
 github "ashfurrow/Nimble-Snapshots"
 ```
 
 Then run:
 ```
-$ carthage bootstrap --platform iOS --toolchain com.apple.dt.toolchain.Swift_3_0
+$ carthage bootstrap --use-xcframeworks --platform iOS
+```
+
+## Swift Package Manager
+
+To add `Nimble-Snapshots` as a dependency, you have to add it to the dependencies of your `Package.swift` file and refer to that dependency in your target.
+
+```swift
+import PackageDescription
+let package = Package(
+    name: "<Your Product Name>",
+    dependencies: [
+       .package(url: "https://github.com/ashfurrow/Nimble-Snapshots", .upToNextMajor(from: "9.0.0"))
+    ],
+    targets: [
+        .target(
+            name: "<Your Target Name>",
+            dependencies: ["Nimble-Snapshots"]),
+    ]
+)
 ```
 
 Use
@@ -157,8 +180,8 @@ expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
 expect(view).to(haveValidDynamicSizeSnapshot(sizes: sizes))
 
 // If you prefer the == syntax, we got you covered too:
-expect(view) == dynamicSizeSnapshot(sizes: sizes)
-expect(view) == dynamicSizeSnapshot(sizes: sizes)
+expect(view) == snapshot(sizes: sizes)
+expect(view) == snapshot(sizes: sizes)
 ```
 
 By default, the size will be set on the view using the frame property. To change this behavior

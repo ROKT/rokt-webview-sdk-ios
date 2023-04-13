@@ -19,10 +19,10 @@ PODS:
   - RoktWebViewSDK (1.0.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
-  - Nimble
-  - Nimble-Snapshots
-  - Quick
+  - FBSnapshotTestCase (~> 2.1.4)
+  - Nimble (~> 11.2.2)
+  - Nimble-Snapshots (~> 9.5.1)
+  - Quick (~> 6.1.0)
   - RoktWebViewSDK (from `../`)
 
 SPEC REPOS:
@@ -45,6 +45,6 @@ SPEC CHECKSUMS:
   Quick: 6676ffb409bf04abba2ff23902af2407bfc6ac90
   RoktWebViewSDK: 4f76561c1b3e1f3c93376e0524d5790265bd6841
 
-PODFILE CHECKSUM: 754f158324881714898cc078eb19b9a261378978
+PODFILE CHECKSUM: 8cb778e2e72f7dc723a35384007388c9f2bc6468
 
 COCOAPODS: 1.11.3

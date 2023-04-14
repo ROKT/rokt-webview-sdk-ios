@@ -27,7 +27,7 @@ platform :ios do
     run_tests(
   		workspace: "./Example/RoktWebViewSDK.xcworkspace",
       scheme: "RoktWebViewSDK-Example",
-      devices: ["iPhone 11"]
+      devices: ["iPhone 13"]
   	)
   end
 

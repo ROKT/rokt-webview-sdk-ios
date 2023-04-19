@@ -1,5 +1,7 @@
 env:
   MAC_BK_AGENT: eng-prod-us-west-2-mac-arm-macos-build-medium
+  NOTIFICATION_ENDPOINT: "https://chat.roktinternal.com/chat"
+  CHAT_WEBHOOK: "https://chat.googleapis.com/v1/spaces/AAAA8EXBrxk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Z8Y76qRmwU1YyAkwbtC-vrNh10ZX5o8jzjV5qf06sS8%3D"
 
 steps:
   - label: ':hammer: Build and test'

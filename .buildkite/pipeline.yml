@@ -1,0 +1,37 @@
+env:
+  MAC_BK_AGENT: eng-prod-us-west-2-mac-arm-macos-build-medium
+
+steps:
+  - label: ':hammer: Build and test'
+    key: 'build-test'
+    commands:
+      - . ~/.zshrc
+      - rbenv local 2.7.6
+      - bundle check || bundle install --path vendor/bundle
+      - xcrun instruments -w "iPhone 13 (14.0) [" || true
+      - bundle exec fastlane setup
+      - bundle exec fastlane test
+    agents:      
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  - block: ':whale: Hold for publish'
+    prompt: 'Confirm publish to Cocoapods?'
+    key: 'hold-publish'
+    depends_on:
+      - 'build-test'
+
+  - label: ':hammer: Publish Cocoapods'
+    key: 'publish'
+    depends_on:
+      - 'hold-publish'
+    commands:
+      - . ~/.zshrc
+      - rbenv local 2.7.6
+      - bundle check || bundle install --path vendor/bundle
+      - bundle exec fastlane setup
+    agents:      
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  

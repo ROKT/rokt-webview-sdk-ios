@@ -22,14 +22,14 @@ steps:
     key: 'hold-publish'
     depends_on:
       - 'build-test'
-    # branches: "release-*"
+    branches: "release-*"
 
   - label: ':speech_balloon: Notify start publish'
     key: 'notify-start-publish'
     command:
       - echo "Notify"
     depends_on: 'hold-publish'
-    # branches: "release-*"
+    branches: "release-*"
     plugins:
       - ROKT/hangouts-notify#v0.6:
           chat-endpoint: ${NOTIFICATION_ENDPOINT}
@@ -39,11 +39,11 @@ steps:
       queue: ${MAC_BK_AGENT}
     timeout_in_minutes: 25
 
-  - label: ':hammer: Publish Cocoapods'
+  - label: ':cocoapods: Publish Cocoapods'
     key: 'publish'
     depends_on:
       - 'notify-start-publish'
-    # branches: "release-*"
+    branches: "release-*"
     commands:
       - . ~/.zshrc
       - rbenv local 2.7.6
@@ -66,7 +66,7 @@ steps:
     command:
       - echo "Notify"
     depends_on: 'publish'
-    # branches: "release-*"
+    branches: "release-*"
     plugins:
       - ROKT/hangouts-notify#v0.6:
           chat-endpoint: ${NOTIFICATION_ENDPOINT}

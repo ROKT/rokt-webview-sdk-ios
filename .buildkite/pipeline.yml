@@ -1,0 +1,79 @@
+env:
+  MAC_BK_AGENT: eng-prod-us-west-2-mac-arm-macos-build-medium
+  NOTIFICATION_ENDPOINT: "https://chat.roktinternal.com/chat"
+  CHAT_WEBHOOK: "https://chat.googleapis.com/v1/spaces/AAAA8EXBrxk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=Z8Y76qRmwU1YyAkwbtC-vrNh10ZX5o8jzjV5qf06sS8%3D"
+
+steps:
+  - label: ':hammer: Build and test'
+    key: 'build-test'
+    commands:
+      - . ~/.zshrc
+      - rbenv local 2.7.6
+      - bundle check || bundle install --path vendor/bundle
+      - xcrun instruments -w "iPhone 13 (14.0) [" || true
+      - bundle exec fastlane setup
+      - bundle exec fastlane test
+    agents:      
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  - block: ':whale: Hold for publish'
+    prompt: 'Confirm publish to Cocoapods?'
+    key: 'hold-publish'
+    depends_on:
+      - 'build-test'
+    branches: "release-*"
+
+  - label: ':speech_balloon: Notify start publish'
+    key: 'notify-start-publish'
+    command:
+      - echo "Notify"
+    depends_on: 'hold-publish'
+    branches: "release-*"
+    plugins:
+      - ROKT/hangouts-notify#v0.6:
+          chat-endpoint: ${NOTIFICATION_ENDPOINT}
+          webhook-url: ${CHAT_WEBHOOK}
+          message: '*Mobile-iOS* is publishing _RoktWebViewSDK_ to CocoaPods\n${BUILDKITE_BUILD_URL}\n_by ${BUILDKITE_BUILD_CREATOR}_'
+    agents: 
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  - label: ':cocoapods: Publish Cocoapods'
+    key: 'publish'
+    depends_on:
+      - 'notify-start-publish'
+    branches: "release-*"
+    commands:
+      - . ~/.zshrc
+      - rbenv local 2.7.6
+      - bundle check || bundle install --path vendor/bundle
+      - bundle exec fastlane setup
+      - bundle exec fastlane tagRelease
+      - pod spec lint
+      - pod trunk push
+    plugins:
+      - seek-oss/aws-sm#v2.3.1:
+          env:
+            COCOAPODS_TRUNK_TOKEN:
+              secret-id: 'prod-ios-sdk-buildkite'
+              json-key: '.COCOAPODS_TRUNK_TOKEN'
+    agents:      
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  - label: ':speech_balloon: Notify finish publish'
+    command:
+      - echo "Notify"
+    depends_on: 'publish'
+    branches: "release-*"
+    plugins:
+      - ROKT/hangouts-notify#v0.6:
+          chat-endpoint: ${NOTIFICATION_ENDPOINT}
+          webhook-url: ${CHAT_WEBHOOK}
+          message: '*Mobile-iOS* has published _RoktWebViewSDK_ to CocoaPods'
+    agents: 
+      queue: ${MAC_BK_AGENT}
+    timeout_in_minutes: 25
+
+  

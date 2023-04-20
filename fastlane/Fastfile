@@ -31,6 +31,12 @@ platform :ios do
   	)
   end
 
+  BUILD_NUMBER = if !ENV["CIRCLE_BUILD_NUMBER"].nil?
+    ENV["CIRCLE_BUILD_NUMBER"]
+  else 
+    ENV["BUILDKITE_BUILD_NUMBER"]
+  end
+
   desc "Tag branch after release"
   lane :tagRelease do
     spec = read_podspec(path: "RoktWebViewSDK.podspec")
@@ -38,8 +44,8 @@ platform :ios do
     begin
       ensure_git_branch(branch: 'release-(.*)')     
     rescue => exception
-      version_bump_podspec(path: "RoktWebViewSDK.podspec", version_number:version + "-alpha." + ENV['CIRCLE_BUILD_NUM'])
-      version += "-alpha." + ENV['CIRCLE_BUILD_NUM']
+      version_bump_podspec(path: "RoktWebViewSDK.podspec", version_number:version + "-alpha." + BUILD_NUMBER)
+      version += "-alpha." + BUILD_NUMBER
     end
     
     add_git_tag(tag:version)

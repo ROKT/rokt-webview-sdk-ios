@@ -11,7 +11,6 @@ steps:
       - rbenv local 2.7.6
       - bundle check || bundle install --path vendor/bundle
       - xcrun instruments -w "iPhone 13 (14.0) [" || true
-      - bundle exec fastlane setup
       - bundle exec fastlane test
     agents:      
       queue: ${MAC_BK_AGENT}
@@ -48,7 +47,6 @@ steps:
       - . ~/.zshrc
       - rbenv local 2.7.6
       - bundle check || bundle install --path vendor/bundle
-      - bundle exec fastlane setup
       - bundle exec fastlane tagRelease
       - pod spec lint
       - pod trunk push

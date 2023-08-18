@@ -16,11 +16,6 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios setup
-```
-fastlane ios setup
-```
-Set up circleci
 ### ios test
 ```
 fastlane ios test

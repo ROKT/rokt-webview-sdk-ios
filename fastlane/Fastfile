@@ -16,11 +16,6 @@
 default_platform(:ios)
 
 platform :ios do
-  
-  desc "Set up circleci"
-  lane :setup do
-    setup_circle_ci
-  end
 
   desc "Runs all the tests"
   lane :test do
@@ -31,11 +26,7 @@ platform :ios do
   	)
   end
 
-  BUILD_NUMBER = if !ENV["CIRCLE_BUILD_NUMBER"].nil?
-    ENV["CIRCLE_BUILD_NUMBER"]
-  else 
-    ENV["BUILDKITE_BUILD_NUMBER"]
-  end
+  BUILD_NUMBER = ENV["BUILDKITE_BUILD_NUMBER"]
 
   desc "Tag branch after release"
   lane :tagRelease do

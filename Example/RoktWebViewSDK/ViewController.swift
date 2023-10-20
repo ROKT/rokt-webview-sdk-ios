@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loadWebURL(_ sender: Any) {
+        // this line of code is only for development purposes and not fit for production.
+        // make sure to sanitise your strings where necessary to avoid potential security issues
         roktWKWebview.load(URLRequest(url: URL(string: urlTextView.text!)!))
     }
     

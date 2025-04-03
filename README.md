@@ -1,4 +1,11 @@
-# rokt-webview-sdk-ios
+# RoktWebViewSDK iOS
+
+**Please note:** This repository is currently unmaintained by a team of developers at Rokt. The repository is here and you can use it as an example only. However please be aware that we are not going to be updating issues or pull requests on this repository.
+
+An alternative approach to integration would be utilising the [Rokt Web SDK](https://docs.rokt.com/developers/integration-guides/web/overview) and utilising the launcher option [overrideLinkNavigation](https://docs.rokt.com/developers/integration-guides/web/library/integration-launcher-options/#override-link-navigation). 
+
+---
+
 The RoktWebView SDK for iOS is a custom WebView that opens Rokt links in an external browser instead of in the same WebView. 
 
 For more information, please visit [here](https://docs.rokt.com/docs/sdk/introduction.html)
@@ -54,11 +61,3 @@ NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
 ## Testing locally
 1. Download the source code locally
 2. Run the `RoktWebViewSDK.xcworkspace` project in `Example`
-
-## Releasing
-1. Open `RoktWebViewSDK.podspec` and update `s.version` to the new release version
-2. Raise a PR targetting the latest `release-x.x` branch
-3. After the build resolves, approve the `hold` job. This automatically runs the `publish` job which pushes your changes to `Cocoapods`
-
-### License
-Please see [LICENSE](LICENSE.md)

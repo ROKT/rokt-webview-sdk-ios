@@ -1,14 +1,30 @@
 # RoktWebViewSDK iOS
 
-**Please note:** This repository is currently unmaintained by a team of developers at Rokt. The repository is here and you can use it as an example only. However please be aware that we are not going to be updating issues or pull requests on this repository.
+**Please note:** This repository is currently unmaintained by a team of developers at Rokt. The repository is here and you can use it as an example only. However please be aware that we are not going to be updating issues or pull requests on this repository for the time being. We may resume development in the future at which point we will review the code, update dependencies, and conduct any modernization.
 
 An alternative approach to integration would be utilising the [Rokt Web SDK](https://docs.rokt.com/developers/integration-guides/web/overview) and utilising the launcher option [overrideLinkNavigation](https://docs.rokt.com/developers/integration-guides/web/library/integration-launcher-options/#override-link-navigation). 
+
+---
+
+## Resident Experts
+
+- Thomson Thomas - thomson.thomas@rokt.com
 
 ---
 
 The RoktWebView SDK for iOS is a custom WebView that opens Rokt links in an external browser instead of in the same WebView. 
 
 For more information, please visit [here](https://docs.rokt.com/docs/sdk/introduction.html)
+
+## Architecture
+
+The RoktWebViewSDK follows a simple, lightweight architecture:
+
+- **RoktWKWebView**: The core component of the SDK that extends Apple's WKWebView. It injects JavaScript to intercept link clicks and handles opening them in an external browser.
+- **Communication Mechanism**: Uses WKScriptMessageHandler to facilitate communication between JavaScript and native code.
+- **Link Handling**: When a link is clicked, it's captured by injected JavaScript and sent to the native layer, which then opens the URL in the device's default browser.
+
+The SDK is designed to be minimal, focusing on a single responsibility: redirecting web links to an external browser rather than loading them within the WebView itself.
 
 ## Usage
 

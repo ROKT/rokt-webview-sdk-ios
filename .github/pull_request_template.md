@@ -1,3 +1,3 @@
-# Project deprecated
+# Project unmaintained
 
-This project is deprecated and is no longer accepting new pull requests.
+This project is currently not accepting new pull requests.

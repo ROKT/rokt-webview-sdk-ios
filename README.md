@@ -42,7 +42,7 @@ pod 'RoktWebViewSDK'
 
 In storyboard, replace WKWebView with RoktWKWebView Custom Class.
 
-![Storyboard presentation](https://roktcdn1.akamaized.net/store/imgs/ios/roktwkwebviewcustomclasspresentation.png)
+![Storyboard presentation](https://apps.rokt.com/store/imgs/ios/roktwkwebviewcustomclasspresentation.png)
 
 Alternatively, the Rokt WebView SDK can be added programmatically in your code. For example:
 

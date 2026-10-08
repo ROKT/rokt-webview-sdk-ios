@@ -1,6 +1,7 @@
 # RoktWebViewSDK iOS - Agent Instructions
 
-An unmaintained example iOS SDK that renders Rokt placements in a web view. `README.md` covers its status and usage.
+An unmaintained example iOS SDK: a `WKWebView` subclass that opens links from Rokt content in
+the external browser instead of in the web view. `README.md` covers its status and usage.
 
 ## This is a PUBLIC repository
 
